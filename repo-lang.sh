@@ -19,7 +19,7 @@ if output=$(curl -s $url | jq -r '.[] | "\(.name): \(.language)"' 2> /dev/null);
   echo "$output"
   echo
   echo "The six most used languages by $gh_username are:"
-  echo "$output" | awk '{print $NF}' | grep -v 'null' | sort | uniq -c | sort -rn | head | column -t | awk '{print $2 ": " $1 " repos"}'
+  echo "$output" | awk '{print $NF}' | grep -v 'null' | sort | uniq -c | sort -rn | head | column -t | awk '{print $2 ": " $1 " repo" ($1 > 1 ? "s" : "")}'
 else
   echo "An error occurred while processing the request."
   echo "Are you sure the username '${gh_username}' exists?"

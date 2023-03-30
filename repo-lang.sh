@@ -17,6 +17,9 @@ url="https://api.github.com/users/${gh_username}/repos"
 
 if output=$(curl -s $url | jq -r '.[] | "\(.name): \(.language)"' 2> /dev/null); then
   echo "$output"
+  echo
+  echo "The most used languages by $gh_username are:"
+  echo "$output" | awk '{print $NF}'  | sort | uniq -c | sort -rn | column -t
 else
   echo "An error occurred while processing the request."
   echo "Are you sure the username '${gh_username}' exists?"

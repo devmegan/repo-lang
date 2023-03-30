@@ -1,16 +1,16 @@
 #!/bin/bash
 
-if [ -z "$1" ]; then
+if [[ -z "$1" || $@ == "--help" || $@ == "-h" ]]; then
   echo "You'll need to provide the GitHub username as the first argument."
   echo
-  echo "Usage: $0 <github_username:string>"
+  echo "Usage: $0 <github_username:str>"
 
   exit 1
 fi
 
 gh_username=$1
 
-echo "Fetching repo info for $gh_username..."
+echo "Fetching repo info for '$gh_username'..."
 echo
 
 url="https://api.github.com/users/${gh_username}/repos"

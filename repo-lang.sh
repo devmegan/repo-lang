@@ -1,7 +1,6 @@
 #!/bin/bash
 
-if [ -z "$1" ]
-then
+if [ -z "$1" ]; then
   echo "You'll need to provide the GitHub username as the first argument."
   exit 1
 fi
@@ -13,4 +12,4 @@ echo
 
 url="https://api.github.com/users/${gh_username}/repos"
 
-curl -s "${url}"
+curl -s "${url}" | jq -r '.[] | "\(.name): \(.language)"'

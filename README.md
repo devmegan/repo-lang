@@ -1,5 +1,7 @@
 # [Repo Lang](https://github.com/devmegan/repo-lang)
 
+<img src="readme/repo-lang-demo.gif" alt="screen recording of script being run and returning repository language information" />
+
 A bash script to fetch and analyse the most used programming languages for a given github account.
 
 It fetches the data from GitHub using [GitHub's REST api](https://docs.github.com/rest). First, the script outputs a list of all the user's repositories and the main language for each one, and then analyses the output to provide a list of the user's six most used languages. It filters out any repositories where the language is `null`.

@@ -5,4 +5,7 @@ RUN apt-get update && \
 
 COPY repo-lang.sh /
 
-ENTRYPOINT ["/repo-lang.sh"]
+CMD ["/bin/bash", "-c", " \
+    read -p 'Enter GitHub username to analyse: ' gh_username && \
+    /repo-lang.sh $gh_username \
+"]

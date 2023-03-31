@@ -20,6 +20,25 @@ To get help running the script use either:
 
 `$ ./repo-lang -h` or `$ ./repo-lang --help`
 
+## Docker
+
+Running a container from the [repo-lang docker image](https://hub.docker.com/repository/docker/devmegan/repo-lang) prompts a user to enter the GitHub username they would like to analyse, and then executes the repo-lang script with the inputted text as an argument. The container must be run with an interactive shell (`-it`) to enable the user to input the username. 
+
+<img src="readme/repo-lang-docker-demo.gif" alt="screen recording of script being run from a remote docker image" />
+
+### Use Image
+
+`$ docker run -it devmegan/repo-lang:latest`
+
+### Use Dockerfile
+
+#### Build
+`$ docker image build -t repo-lang:latest .`
+
+### Run
+
+`$ docker run -it repo-lang:latest`
+
 ## Error handling
 
 The script handles all errors, including an invalid GitHub username, by returning an error message asking the user to check the username.
